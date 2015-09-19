@@ -1,3 +1,22 @@
-<h1>Images go here</h1>
+<h1>Bucket</h1>
+
+<div class="m-actions">
+  <form>
+    <fieldset>
+      <label for="filter">Filter images</label>
+      <input id="filter" name="filter" data-action="filter" placeholder="Filter images"/>
+    </fieldset>
+  </form>
+</div>
+
+<ol class="m-images">
+  <% images.each do |image| %>
+    <li class="image" data-image-name="<%= image.basename %>">
+      <%= link_to image.basename, image.basename.to_s, class: "source image-metadata" %>
+      <span class="image-metadata date"><%= image.mtime.strftime("%e-%b-%Y") %></span>
+      <span class="image-metadata size"><%= image.size %></span>
+    </li>
+  <% end %>
+</ol>
 
 

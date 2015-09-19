@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="isnt-js">
   <head>
     <meta charset="utf-8">
 
@@ -10,10 +10,11 @@
     <title><%= current_page.data.title || "Bucket" %></title>
 
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag  "application" %>
   </head>
 
   <body class="<%= page_classes %>">
     <%= yield %>
+
+    <%= javascript_include_tag  "application" %>
   </body>
 </html>
