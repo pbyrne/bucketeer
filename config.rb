@@ -4,14 +4,19 @@ require_relative "models/image"
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
-set :source_images, Pathname.new("~/Dropbox/Photos/Bucket").expand_path
+set :external_images, Pathname.new("source/external_images").expand_path
 
 helpers do
   def images
-    @images ||= Dir.glob(source_images.join("*")).map do |path|
+    @images ||= Dir.glob(external_images.join("*")).map do |path|
       Image.new(path)
     end
   end
+end
+
+images.each do |image|
+  proxy "/#{image.basename}", "external_images/#{image.basename}",
+    locals: {path: image.path},ignore: true
 end
 
 # Build-specific configuration
