@@ -4,7 +4,6 @@ require_relative "models/image"
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
-set :external_images, Pathname.new("source/external_images").expand_path
 
 helpers do
   def images
@@ -12,9 +11,14 @@ helpers do
       Image.new(path)
     end
   end
+
+  def external_images
+    Pathname.new("source/external_images").expand_path
+  end
 end
 
-images.each do |image|
+# TODO Can't call helpers directly in config.rb any more. Probably a better way than this, though.
+app.generic_template_context.images.each do |image|
   proxy "/#{image.basename}", "external_images/#{image.basename}",
     locals: {path: image.path},ignore: true
 end
