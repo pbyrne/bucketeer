@@ -32,7 +32,9 @@ configure :build do
   # activate :minify_javascript
 
   # Enable cache buster
-  # activate :asset_hash
+  activate :asset_hash do |options|
+    options.exts -= %w(.jpg .jpeg .gif .png) # don't hash the bucketed images themselves
+  end
 
   # Use relative URLs
   # activate :relative_assets
