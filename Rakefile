@@ -5,9 +5,6 @@ end
 
 desc "Build and deploy the site"
 task release: :build do
-  # year-month-day-hourminute
-  timestamp = Time.now.strftime('%Y-%m-%d-%H%M')
-  sh "git tag '#{timestamp}' && git push --tag"
   deploy "bucket.patrickbyrne.net"
 end
 
