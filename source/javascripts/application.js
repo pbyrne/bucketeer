@@ -6,4 +6,3 @@
   $("html.isnt-js").removeClass("isnt-js").addClass("is-js")
   var $bucketeer = new Bucketeer($(".m-actions form"), $(".m-images .image"))
 })();
-
