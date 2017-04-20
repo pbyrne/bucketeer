@@ -7,8 +7,7 @@ This is a simple [Middleman][middleman] app for taking a directory of images and
 Since this is a Middleman site, it uses a [Ruby][ruby] toolchain. Use the easiest available Ruby (2.0+) and [Bundler][bundler], then:
 
 1. Run `bundle` to install Ruby dependencies.
-2. Symlink your directory of images to `source/external_images` like so: 
-ln -s ~/Dropbox/Photos/Bucket source/external_images`
+2. Symlink your directory of images to `source/external_images` like so: `ln -s $ICLOUD_DRIVE/Pictures/Bucket source/external_images`
 3. (TBD) Set up dotenv to configure deploys?
 
 [middleman]:http://middlemanapp.com/
