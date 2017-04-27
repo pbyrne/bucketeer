@@ -12,7 +12,7 @@
 <ol class="m-images">
   <% images.each do |image| %>
     <li class="image" data-image-name="<%= image.basename %>">
-      <%= link_to image.basename, image.basename.to_s, class: "source image-metadata" %>
+      <%= link_to image.basename, image.uri, class: "source image-metadata" %>
       <span class="image-metadata date"><%= image.mtime.strftime("%e-%b-%Y") %></span>
       <span class="image-metadata size"><%= image.size %></span>
     </li>
