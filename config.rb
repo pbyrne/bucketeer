@@ -7,7 +7,7 @@ set :images_dir, 'images'
 
 helpers do
   def images
-    @images ||= Dir.glob(external_images.join("*")).map do |path|
+    @images ||= Dir.glob(external_images.join("*")).sort.map do |path|
       Image.new(path)
     end
   end
